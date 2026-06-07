@@ -1,6 +1,8 @@
-from fastapi import FastAPI
-app= FastAPI(title="SemanticOps AI")
+from dotenv import load_dotenv
+import os
 
-@app.get("/")
-def root():
-   return {"message:" "SemanticOps AI Backend is running"}
+load_dotenv()
+
+app_name=os.getenv("APP_NAME")
+
+print(f"{app_name} Backend started")
