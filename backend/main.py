@@ -1,16 +1,18 @@
 from fastapi import FastAPI
 import os
 from app.api.emplyee_router import router as employee_router
+from app.core.config import settings
 
-app=FastAPI(
-    title="Workforce Deployement Intelligence Platform",
-    description="AI-powered platform for workforce mobility, skill-gap analysis, and transition readiness assessment.",
-    version="0.1.0"
+app= FastAPI(
+    title=settings.app_name
 )
+
 
 @app.get("/")
 def home():
     return{
+        "application":settings.app_name,
+        "environment":settings.environment,
         "message":"Welcome to WDIP"
     }
 
