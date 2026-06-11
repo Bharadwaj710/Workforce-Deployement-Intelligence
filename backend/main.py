@@ -2,6 +2,7 @@ from fastapi import FastAPI
 import os
 from app.api.emplyee_router import router as employee_router
 from app.core.config import settings
+from app.api.predictor_router import router as predictor_router
 
 app= FastAPI(
     title=settings.app_name
@@ -23,3 +24,4 @@ def health_check():
     }
 
 app.include_router(employee_router)
+app.include_router(predictor_router)
